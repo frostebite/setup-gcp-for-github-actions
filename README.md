@@ -5,7 +5,7 @@ This repository makes it easy to give GCP access to GitHub Actions.
 Click the button below and you will be taken to Google Cloud Shell, from there you will be taken through several steps automatically to add GCP access to any GitHub repo you have access to.
 
 [![Run on Google
-Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=https://github.com/GoogleCloudPlatform/cloud-run-hello.git)
+Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=https://github.com/frostebite/setup-gcp-for-github-actions.git)
 
 ## Steps
 
