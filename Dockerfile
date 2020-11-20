@@ -1,6 +1,8 @@
-FROM ubuntu
+FROM node:12
 
-COPY ./setup-secrets.sh .
-RUN chmod +x ./setup-secrets.sh
-
-CMD [ "./setup-secrets.sh" ]
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 8080
+CMD [ "node", "index.js" ]
