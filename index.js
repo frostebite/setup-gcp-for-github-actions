@@ -1,11 +1,21 @@
-// ask for PAT
+const { Octokit } = require("@octokit/rest");
 
-// present list of repos and ask for selection
+const octokit = new Octokit({
+  auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+});
 
+
+
+async function start() {
+  const { data } = await octokit.request("/user");
+  console.log(data);
+  console.log("test");
+}
 // create service account
 
 // create token
 
 // create github secrets
 
-console.log("test");
+
+start();
