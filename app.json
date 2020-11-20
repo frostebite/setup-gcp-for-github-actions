@@ -1,8 +1,8 @@
 {
-    "name": "foo-app",
+    "name": "setup-gcp-for-github-actions",
     "env": {
-        "BACKGROUND_COLOR": {
-            "description": "specify a css color",
+        "GITHUB_PERSONAL_ACCESS_TOKEN": {
+            "description": "Personal access token for GitHub",
             "required": true
         }
     }
