@@ -2,7 +2,7 @@
     "name": "setup-gcp-for-github-actions",
     "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": {
-            "description": "Personal access token for GitHub",
+            "description": "Personal access token for GitHub (can leave empty and create a gcp secret manager secret called github_personal_access_token",
             "required": true
         },
         "GITHUB_REPO_URL": {
