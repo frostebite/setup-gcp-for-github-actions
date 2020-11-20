@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/frostebite/setup-gcp-for-github-actions#readme",
   "dependencies": {
-    "@octokit/rest": "^18.0.9"
+    "@octokit/rest": "^18.0.9",
+    "googleapis": "^65.0.0"
   }
 }
