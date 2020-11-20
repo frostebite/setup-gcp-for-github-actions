@@ -1,3 +1,4 @@
+#!/bin/bash
 # ask for PAT
 
 # present list of repos and ask for selection
@@ -7,3 +8,4 @@
 # create token
 
 # create github secrets
+echo "TEST"
