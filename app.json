@@ -1,0 +1,9 @@
+{
+    "name": "foo-app",
+    "env": {
+        "BACKGROUND_COLOR": {
+            "description": "specify a css color",
+            "required": true
+        }
+    }
+}
