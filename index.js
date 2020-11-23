@@ -1,23 +1,34 @@
 const { Octokit } = require("@octokit/rest");
 const child_process = require('child_process');
-const octokit = new Octokit({
-  auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
-});
 
-
+const express = require('express');
+const app = express();
 
 async function start() {
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
+  });
   const { data } = await octokit.request("/user");
   console.log(data);
   console.log("test");
   
   child_process.execSync("gcloud auth application-default login");
+  // create service account
+  
+  // create token
+  
+  // create github secrets
 }
-// create service account
 
-// create token
+app.get('/', (req, res) => {
+  console.log('Hello world received a request.');
+  start();
 
-// create github secrets
+  const target = process.env.TARGET || 'World';
+  res.send(`Hello ${target}!`);
+});
 
-
-start();
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log('Hello world listening on port', port);
+});
