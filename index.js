@@ -4,7 +4,16 @@ const exphbs  = require('express-handlebars');
 const express = require('express');
 
 const app = express();
+
+app.use(express.urlencoded({
+  extended: true
+}));
+
 var hbs = exphbs.create({ /* config */ });
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 
 async function start() {
   const octokit = new Octokit({
@@ -25,8 +34,6 @@ function run(cmd){
   return child_process.execSync(cmd).toString();
 }
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
   res.render('home');
