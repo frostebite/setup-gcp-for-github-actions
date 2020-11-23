@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  run(req.query.input);
+  run(req.body.input);
   res.render('home');
 });
 
