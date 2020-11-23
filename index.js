@@ -41,12 +41,12 @@ function run(cmd){
 /* App Endpoints */
 
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home', {output:null});
 });
 
 app.post('/', (req, res) => {
-  run(req.body.input);
-  res.render('home');
+  let output = run(req.body.input);
+  res.render('home', {output});
 });
 
 
