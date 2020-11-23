@@ -22,10 +22,15 @@ async function start() {
 
 app.get('/', (req, res) => {
   console.log('Hello world received a request.');
-  start();
 
   const target = process.env.TARGET || 'World';
   res.send(`Hello ${target}!`);
+});
+
+app.post('/', (req, res) => {
+  start();
+
+  res.send(`Done`);
 });
 
 const port = process.env.PORT || 8080;
