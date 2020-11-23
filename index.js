@@ -3,6 +3,7 @@ const child_process = require('child_process');
 
 const express = require('express');
 const app = express();
+var hbs = exphbs.create({ /* config */ });
 
 async function start() {
   const octokit = new Octokit({
@@ -20,7 +21,7 @@ async function start() {
   // create github secrets
 }
 
-app.engine('handlebars', exphbs());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
