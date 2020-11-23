@@ -21,23 +21,19 @@ async function start() {
   // create github secrets
 }
 
-function gcpConnect(){
-  return child_process.execSync("gcloud auth application-default login").toString();
+function run(cmd){
+  return child_process.execSync(cmd).toString();
 }
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-  res.render('home', {
-    googleCloudAuthenticated: gcpConnect()
-  });
+  res.render('home');
 });
 
 app.post('/', (req, res) => {
-  start();
-
-  res.send(`Done`);
+  res.send(run(req.body.input));
 });
 
 const port = process.env.PORT || 8080;
