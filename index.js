@@ -20,11 +20,11 @@ async function start() {
   // create github secrets
 }
 
-app.get('/', (req, res) => {
-  console.log('Hello world received a request.');
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
-  const target = process.env.TARGET || 'World';
-  res.send(`Hello ${target}!`);
+app.get('/', (req, res) => {
+  res.render('home');
 });
 
 app.post('/', (req, res) => {
