@@ -33,7 +33,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  res.send(run(req.body.input));
+  run(req.query.input);
+  res.render('home');
 });
 
 const port = process.env.PORT || 8080;
