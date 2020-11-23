@@ -14,7 +14,6 @@ async function start() {
   console.log(data);
   console.log("test");
   
-  child_process.execSync("gcloud auth application-default login");
   // create service account
   
   // create token
@@ -22,11 +21,17 @@ async function start() {
   // create github secrets
 }
 
+function gcpConnect(){
+  return child_process.execSync("gcloud auth application-default login").toString();
+}
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home', {
+    googleCloudAuthenticated: gcpConnect()
+  });
 });
 
 app.post('/', (req, res) => {
