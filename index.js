@@ -3,6 +3,8 @@ const child_process = require('child_process');
 const exphbs  = require('express-handlebars');
 const express = require('express');
 
+/* App Setup */
+
 const app = express();
 
 app.use(express.urlencoded({
@@ -14,6 +16,7 @@ var hbs = exphbs.create({ /* config */ });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+/* Functions */
 
 async function start() {
   const octokit = new Octokit({
@@ -35,6 +38,8 @@ function run(cmd){
 }
 
 
+/* App Endpoints */
+
 app.get('/', (req, res) => {
   res.render('home');
 });
@@ -43,6 +48,9 @@ app.post('/', (req, res) => {
   run(req.body.input);
   res.render('home');
 });
+
+
+/* Listen */
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
